@@ -24,12 +24,17 @@ public class TestLogger implements TestWatcher {
     @Override
     public void testFailed(ExtensionContext context, Throwable cause) {
         logger.error("Тест провален: " + context.getDisplayName(), cause);
-        captureScreenshotAndLogs("Проваленный тест", context, true);
+        captureScreenshot("Проваленный тест", context, true);
         quitDriver();
     }
 
+    @Override
+    public void testSuccessful(ExtensionContext context) {
+        logger.info("Тест успешен: " + context.getDisplayName());
+        quitDriver();
+    }
 
-    private void captureScreenshotAndLogs(String status, ExtensionContext context, boolean saveToFile) {
+    private void captureScreenshot(String status, ExtensionContext context, boolean saveToFile) {
         try {
             // Скриншот
             byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
@@ -43,7 +48,7 @@ public class TestLogger implements TestWatcher {
                 FileUtils.copyFile(srcFile, new File(pathName));
             }
         } catch (IOException e) {
-            logger.error("Failed to capture screenshot and logs", e);
+            logger.error("Ошибка при создании скриншота", e);
             throw new RuntimeException(e);
         }
     }

@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import task1.pages.LambdaPage;
 
 @ExtendWith(TestLogger.class)
-@Feature("LambdaTest Application Tests")
+@Feature("Тестирование сайта LambdaTest")
 public class LambdaPageTests extends CoreTest {
 
     private LambdaPage lambdaPage;
@@ -94,8 +94,6 @@ public class LambdaPageTests extends CoreTest {
         });
     }
 
-
-    //a
     private void checkAndVerifyNewItem(String newItemText) {
         Allure.step("Отметить новый элемент списка дел", () -> {
             lambdaPage.checkTodoItem(newItemText);
