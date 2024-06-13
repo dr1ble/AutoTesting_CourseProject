@@ -1,5 +1,5 @@
 # Курсовой проект на тему "Автоматизация тестирования ПО" язык Java 
-## Используемый стек: Java, Maven, Selenium (Pageobect pattern), JUnit5, Slf4j, RestAssured, AssertJ, Lombok, Allure
+## Используемый стек: Java, Maven, Selenium (Pageobject pattern), JUnit5, Slf4j, RestAssured, AssertJ, Lombok, Allure
 ### Запуск проекта:
 Для запуска тестов в командной строке: 
 ````mvn clean test````
