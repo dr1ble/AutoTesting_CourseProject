@@ -18,7 +18,7 @@ abstract public class CorePage {
     private static final Logger logger = LoggerFactory.getLogger(CorePage.class);
 
     public CorePage() {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
     protected void click(WebElement element) {
@@ -27,7 +27,7 @@ abstract public class CorePage {
     }
 
     protected void goToElement(WebElement element) {
-        logger.info("Переходи к элементу: {}", element);
+        logger.info("Переход к элементу: {}", element);
         Actions action = new Actions(driver);
         action.moveToElement(element).build().perform();
     }
